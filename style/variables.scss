@@ -1,0 +1,80 @@
+$bg-color : rgb(24, 35, 56);
+$bg-transparent : rgba(35, 53, 84, 0.26);
+$bg-semitransparent : rgba(24, 35, 56, 0.817);
+$button-color: rgb(54, 173, 228);
+$langage-color: rgba(87, 203, 255, 1);
+$span-color: aqua;
+$hover-color: #36ade4;
+$bg-card: rgb(37, 50, 75);
+$police-color: white;
+$link-mobile-clr: rgb(30, 47, 75);
+
+@mixin margins ($top : auto, $right : auto, $bottom : auto, $left : auto) {
+    margin-top: $top;
+    margin-right: $right;
+    margin-bottom: $bottom;
+    margin-left: $left;
+}
+
+@mixin before ($z-index:-1){
+    content: "";
+    position: absolute;
+    z-index: $z-index;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+@mixin flex-direction($direction: column) {
+    display: flex;
+    @if $direction == row-reverse {
+      -webkit-box-direction: reverse;
+      -webkit-box-orient: horizontal;
+         -moz-box-direction: reverse;
+         -moz-box-orient: horizontal;
+    } @else if $direction == column {
+      -webkit-box-direction: normal;
+       -webkit-box-orient: vertical;
+         -moz-box-direction: normal;
+          -moz-box-orient: vertical;
+    } @else if $direction == column-reverse {
+      -webkit-box-direction: reverse;
+        -webkit-box-orient: vertical;
+         -moz-box-direction: reverse;
+           -moz-box-orient: vertical;
+    } @else {
+       -webkit-box-direction: normal;
+      -webkit-box-orient: horizontal;
+          -moz-box-direction: normal;
+         -moz-box-orient: horizontal;
+    }
+    -webkit-flex-direction: $direction;
+        -ms-flex-direction: $direction;
+            flex-direction: $direction;
+  }
+
+@mixin justify-content($value: space-between) {
+    display: flex;
+    @if $value == flex-start {
+      -webkit-box-pack: start;
+         -moz-box-pack: start;
+         -ms-flex-pack: start;
+    } @else if $value == flex-end {
+      -webkit-box-pack: end;
+         -moz-box-pack: end;
+         -ms-flex-pack: end;
+    } @else if $value == space-between {
+      -webkit-box-pack: justify;
+         -moz-box-pack: justify;
+         -ms-flex-pack: justify;
+    } @else if $value == space-around {
+         -ms-flex-pack: distribute;
+    } @else {
+      -webkit-box-pack: $value;
+         -moz-box-pack: $value;
+         -ms-flex-pack: $value;
+    }
+    -webkit-justify-content: $value;
+            justify-content: $value;
+  }
