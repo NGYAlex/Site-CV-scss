@@ -17,9 +17,9 @@ body{
     scrollbar-width: thin;
     scroll-behavior: smooth;
     scrollbar-color: #727680 $bg-color;
-}
-*::-webkit-scrollbar{
-    display: none;
+    &::-webkit-scrollbar{
+        display: none;
+    }
 }
 
 @keyframes fadeInDown {
@@ -46,51 +46,6 @@ a{
     font-family: $font-mono;
 }
 
-header{
-    height: 10vh;
-    width: 98%;
-    @include margins ();
-    display: flex;
-    @include justify-content (space-between);
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    background-color: $bg-transparent;
-}
-
-header a img:not(.burger){
-    height: 70px;
-    width: 90px;
-}
-
-header #links{
-    @include justify-content(space-between);
-    list-style: none;
-    width: 100%;
-    align-items: center;
-    padding: 0;
-    @include margins ($right : 5%);
-    transition-duration: 0.4s;
-}
-
-header .navig{
-    display: flex;
-    @include justify-content (space-between);
-    width: 50%;
-    text-align: center;
-    align-items: center;
-}
-
-header li a{
-    transition-duration: 0.4s;
-}
-
-header li:hover a{
-    color: $police-color;
-    font-size: 1.3rem;
-}
-
 section{
     height: 90vh;
     padding-top: 10vh;
@@ -102,179 +57,20 @@ h1, h2{
     color: $police-color;
 }
 
-h1:not(#myname){
-    @include margins ($bottom: 8%);
-}
-
 h1{
     font-size: 5rem;
+    &:not(#myname){
+        @include margins ($bottom: 8%);
+    }
 }
 
 h2{
     text-transform: uppercase;
 }
 
-#icone-site{
-    @include margins ($left: 3%);
-    transition-duration: 0.4s;
-}
-
-#icone-site:hover {
-    transform: scale(1.2);
-}
-
 .container{
     width: 70%;
     margin: auto;
-}
-
-#button-cv{
-    width: 90px;
-    height: 35px;
-    @include justify-content(center);
-    align-items: center;
-    border-radius: 5px;
-    border: none;
-    margin-right: 3%;
-    background-color: $button-color;
-}
-
-.left-sweep{
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    -webkit-transition-property: color;
-    transition-property: color;
-    box-shadow: 0 0 1px transparent;
-    position: relative;
-}
-
-.left-sweep:before {
-    @include before;
-    background: #013f54e7;
-    border-radius: 4px;
-    transform: scaleX(0);
-    transition-duration: 0.2s;
-    transition-timing-function: ease-out;
-    transform-origin: left;
-}
-
-.left-sweep:hover a,
-.left-sweep:focus a,
-.left-sweep:active a {
-color: $police-color;
-}
-/* Affichage hover */
-.left-sweep:hover:before,
-.left-sweep:focus:before,
-.left-sweep:active:before {
--webkit-transform: scaleX(1);
-transform: scaleX(1);
-}
-
-    // Section presentation
-
-#section-presentation{
-    @include flex-direction(column);
-}
-
-.box-presentation{
-    width: 100%;
-    height: 45vh;
-    padding-top: 1vh;
-}
-
-.box-infos{
-    width: 90%;
-}
-
-.box-infos ul{
-    list-style: none;
-    @include justify-content(space-around);
-}
-
-.box-infos li{
-    padding-right: 1%;
-    font-family: $font-mono;
-}
-
-.box-infos span{
-    text-decoration: underline;
-    font-weight: 600;
-    font-family: $font-main;
-}
-
-// Section competences
-
-#section-skills h2{
-    text-align: center;
-}
-
-#section-skills figure:not(.skill){
-    width: 100%;
-}
-
-.skill-list p{
-    font-size: 1.4rem;
-    transition-duration: 0.2s;
-    text-align: center;
-    font-family: $font-mono;
-}
-
-.skill-list p:hover{
-    transform: scale(1.1);
-    color: $hover-color;
-}
-
-.competences{
-    @include justify-content(space-around);
-}
-
-.skill{
-    @include flex-direction(column);
-    background-color: $bg-card;
-}
-
-#section-skills h2{
-    margin-bottom: 7vh;
-}
-
-.skillbox{
-    height: 40vh;
-    width: 20vw;
-}
-
-.skill-list{
-    height: 80%;
-    width: 65%;
-    margin: auto;
-}
-
-.skill-list li{
-    list-style-type: square;
-}
-
-// Section parcours
-
-#section-parcours{
-    height: 210vh;
-}
-
-#section-parcours h2{
-    font-size: 1.4rem;
-}
-
-.parcours .exp{
-    @include margins ($bottom:10%, $left:5%)
-}
-
-#chevron{
-    height: 30px;
-    width: 30px;
-}
-
-#section-parcours figure{
-    width: 75%;
-    @include margins ();
 }
 
 figure{
@@ -286,144 +82,367 @@ figcaption{
     width: 50%;
 }
 
+#burger{
+    margin-right: 1%;
+    img{
+        height: 70px;
+        width: 70px;
+    }
+}
+
+#hidden{
+    display: none;
+}
+a.icon{
+    display: none;
+}
+
+header{
+    height: 10vh;
+    width: 98%;
+    @include margins ();
+    display: flex;
+    @include justify-content (space-between);
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: $bg-transparent;
+
+    #icone-site{
+        @include margins ($left: 3%);
+        transition-duration: 0.4s;
+        &:hover{
+            transform: scale(1.2);
+        }
+    }
+
+    #links{
+        @include justify-content(space-between);
+        list-style: none;
+        width: 100%;
+        align-items: center;
+        padding: 0;
+        @include margins ($right : 5%);
+        transition-duration: 0.4s;
+    }
+
+    .navig{
+        display: flex;
+        @include justify-content (space-between);
+        width: 50%;
+        text-align: center;
+        align-items: center;
+    }
+
+    li {
+        a{
+        transition-duration: 0.4s;
+        }
+
+        &:hover a{
+            color: $police-color;
+            transform: scale(1.1);
+        }
+    }
+
+    ul input, ul label{
+        display: none;
+    }
+
+    a{
+        #button-cv{
+            width: 90px;
+            height: 35px;
+            @include justify-content(center);
+            align-items: center;
+            border-radius: 5px;
+            border: none;
+            margin-right: 3%;
+            background-color: $button-color;
+        }
+        .left-sweep{
+            -webkit-transform: perspective(1px) translateZ(0);
+            transform: perspective(1px) translateZ(0);
+            -webkit-transition-property: color;
+            transition-property: color;
+            box-shadow: 0 0 1px transparent;
+            position: relative;
+        
+            &:hover a,
+            &:focus a,
+            &:active a{
+                color: $police-color;
+            }
+        
+            &::before{
+                @include before;
+                background: #013f54e7;
+                border-radius: 4px;
+                transform: scaleX(0);
+                transition-duration: 0.2s;
+                transition-timing-function: ease-out;
+                transform-origin: left;
+        
+                /* Affichage hover */
+                &:hover,
+                &:focus,
+                &:active{
+                    -webkit-transform: scaleX(1);
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
+}
+
+header a img:not(.burger){
+    height: 70px;
+    width: 90px;
+}
+
+    // Section presentation
+
+#section-presentation{
+    @include flex-direction(column);
+
+    .box-presentation{
+        width: 100%;
+        height: 45vh;
+        padding-top: 1vh;
+    }
+
+    .box-infos{
+        width: 90%;
+        ul{
+            list-style: none;
+            @include justify-content(space-around);
+        }
+        li{
+            padding-right: 1%;
+            font-family: $font-mono;
+        }
+        span{
+            text-decoration: underline;
+            font-weight: 600;
+            font-family: $font-main;
+        }
+    }
+}
+
+// Section competences
+
+#section-skills{
+
+    h2{
+        text-align: center;
+        margin-bottom: 7vh;
+    }
+
+    figure:not(.skill){
+        width: 100%;
+    }
+
+    .competences{
+        @include justify-content(space-around);
+
+        .skill{
+            @include flex-direction(column);
+            background-color: $bg-card;
+    
+            .skillbox{
+                height: 40vh;
+                width: 20vw;
+                
+                .skill-list {
+                    height: 80%;
+                    width: 65%;
+                    margin: auto;
+                    p{
+                        font-size: 1.4rem;
+                        transition-duration: 0.2s;
+                        text-align: center;
+                        font-family: $font-mono;
+                    }
+                    &:hover{
+                        transform: scale(1.1);
+                        color: $hover-color;
+                    }
+                    li{
+                        list-style-type: square;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Section parcours
+
+#section-parcours{
+    height: 210vh;
+
+    h2{
+        font-size: 1.4rem;
+    }
+
+    figure{
+        width: 75%;
+        @include margins ();
+    }
+
+    #chevron{
+        height: 30px;
+        width: 30px;
+    }
+
+    .parcours .exp{
+        @include margins ($bottom:10%, $left:5%)
+    }
+}
+
+
+
+
+
+
+
+
 // Section works
 
 #section-works{
     height: 270vh;
     z-index: 2;
-}
 
-#img_site{
-    height: 100%;
-    width: 100%;
-}
+    #img_site{
+        height: 100%;
+        width: 100%;
+    }
 
-#section-works figcaption{
-    width: 20%;
-    font-size: 4rem;
-    margin: auto;
-}
+    figure{
+        @include margins ($left:3%,$bottom:5vh,$top:0,$right:0);
+        @include justify-content(space-between);
+        z-index: 2;
+        background-color: #013f54e7;
+        border-radius: 20px;
+        padding: 2% 0 2% 0;
+        transition: 0.3s;
+    }
 
-#section-works a{
-    transition: all ease 0.5s;
-}
+    figcaption{
+        width: 20%;
+        font-size: 4rem;
+        margin: auto;
+    }
 
-#section-works a{
-    width: 70%;
-    height: 50%;
-}
+    a{
+        transition: all ease 0.5s;
+        width: 70%;
+        height: 50%;
+    }
 
-#section-works figure{
-    @include margins ($left:3%,$bottom:5vh,$top:0,$right:0);
-    @include justify-content(space-between);
-    z-index: 2;
-    background-color: #013f54e7;
-    border-radius: 20px;
-    padding: 2% 0 2% 0;
-    transition: 0.3s;
-}
-
-.popup {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 0%;
-    width: 100%;
-    transition: .5s ease;
-    background-color: $bg-semitransparent;    
-    overflow: hidden;
-    @include flex-direction(column);
-}
-
-.popup p{
-    text-align: center;
-    font-family: $font-mono;
-}
-
-#section-works .contain:hover .popup{
-    height: 100%;
-}
-
-#section-works .contain:hover .popup .used{
-    display: flex;
-}
-
-#section-works ul{
-    @include justify-content(space-between);
-    list-style: none;
-    align-items: center;
-    padding: 0;
-}
-
-.contain{
-    position: relative;
-    width: 45vw;
-    height: 45vh;
-}
-
-.used li{
-    background-color: $langage-color;
-    border-radius: 5px;
-    padding: 3%;
-    margin: 3%;
-}
-
-.used{
-    @include justify-content(space-between);
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20%;
-    width: 20%;
+    ul{
+        @include justify-content(space-between);
+        list-style: none;
+        align-items: center;
+        padding: 0;
+    }
 }
 
 #img_moved{
     left: 6%;
 }
 
+.contain{
+    position: relative;
+    width: 45vw;
+    height: 45vh;
+
+    &:hover .popup{
+        height: 100%;
+        .used{
+            display: flex;
+        }
+    }
+
+    .popup {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 0%;
+        width: 100%;
+        transition: .5s ease;
+        background-color: $bg-semitransparent;    
+        overflow: hidden;
+        @include flex-direction(column);
+    
+        p{
+            text-align: center;
+            font-family: $font-mono;
+        }
+    
+        .used{
+            @include justify-content(space-between);
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20%;
+            width: 20%;
+            li{
+                background-color: $langage-color;
+                border-radius: 5px;
+                padding: 3%;
+                margin: 3%;
+            }
+        }
+    }
+}
+
 // Section talk
 
 #section-talk{
     height: 70vh;
-}
-#section-talk p, #section-talk h1{
-    text-align: center;
-    @include flex-direction(column);
-    @include margins ($bottom:2%)
-}
-#section-talk p{
-    width: 55%;
-}
 
-#section-talk .contacts{
-    @include justify-content(space-around);
-    margin-top: 5%;
-}
+    p,h1{
+        text-align: center;
+        @include flex-direction(column);
+        @include margins ($bottom:2%)
+    }
 
-#section-talk .contactbox{
-    background-color: $bg-card;
-    width: 30%;
-    height: 20vh;
-    @include justify-content(center);
-    flex-direction: column;
-}
+    p{
+        width: 55%;
+    }
 
-#section-talk a{
-    margin: auto;
-    @include flex-direction(column);
-    font-weight: 600;
-}
+    h2{
+        font-family: $font-mono;
+        text-align: center;
+        @include margins ($top:0%)
+    }
 
-#section-talk img{
-    height: 60px;
-    width: 60px;
-    @include margins ($bottom:1%)
-}
+    a{
+        margin: auto;
+        @include flex-direction(column);
+        font-weight: 600;
+    }
 
-#section-talk h2{
-    font-family: $font-mono;
-    text-align: center;
-    @include margins ($top:0%)
+    img{
+        height: 60px;
+        width: 60px;
+        @include margins ($bottom:1%)
+    }
+
+    .contacts{
+        @include justify-content(space-around);
+        margin-top: 5%;
+    }
+    
+    .contactbox{
+        background-color: $bg-card;
+        width: 30%;
+        height: 20vh;
+        @include justify-content(center);
+        flex-direction: column;
+    }
 }
 
 // Footer
@@ -433,36 +452,17 @@ footer{
     @include margins ();
     @include flex-direction(column);
     align-items: center;
-}
-footer a img{
-    opacity:  0.5;
-    transition-duration: 0.4s;
-}
-footer a:hover img{
-    opacity: 1;
+    a img{
+        opacity:  0.5;
+        transition-duration: 0.4s;
+    }
+    a:hover img{
+        opacity: 1;
+    }
 }
 
 
 // Responsive
-
-
-#burger{
-    margin-right: 1%;
-}
-#burger img{
-    height: 70px;
-    width: 70px;
-}
-header ul input, header ul label{
-    display: none;
-}
-#hidden{
-    display: none;
-}
-a.icon{
-    display: none;
-}
-
 
 @media screen and (max-width:1335px) {
     body{
@@ -479,31 +479,33 @@ a.icon{
     }
     header {
         width: 100%;
-    }
-    header nav ul {
-        @include justify-content(right);
-        padding: 0;
-    }
-    header.container{
-        width: 90%;
-    }
+        .container{
+            width: 90%;
+        }
 
-    header .navig{
-        width: 53%;
-        align-items: center;
-    }
+        nav ul {
+            @include justify-content(right);
+            padding: 0;
+        }
 
-    header .navig #links{
-        display: block;
-        overflow: hidden;
-    }
-    header .icon, .icon img{
-        display: block;
-    }
-    .navig #links a {
-        padding-top: 3%;
-        padding-bottom: 3%;
-        display: block;
+        .navig{
+            width: 53%;
+            align-items: center;
+            #links{
+                display: block;
+                overflow: hidden;
+                a {
+                    padding-top: 3%;
+                    padding-bottom: 3%;
+                    display: block;
+                }
+            }
+            
+        }
+
+        .icon, .icon img{
+            display: block;
+        }
     }
     #links{
         top: 0;
@@ -529,36 +531,39 @@ a.icon{
     }
     .box-infos{
         width: 100%;
-    }
-    .box-infos ul{
-        flex-wrap: wrap;
-        align-items: center;
-        text-align: center;
-    }
-    .box-infos li{
-        padding-bottom: 5%;
+
+        ul{
+            flex-wrap: wrap;
+            align-items: center;
+            text-align: center;
+        }
+
+        li{
+            padding-bottom: 5%;
+        }
     }
 
     .skillbox{
         width: 100%;
     }
-    #section-skills .skill-list{
-        width: 100%;
-    }
-    #section-skills .competences{
-        @include flex-direction(column);
-    }
+
     #section-skills{
         height: 200vh;
         padding: 0;
-    }
-    #section-skills h2{
-        font-size: 2rem;
-    }
-    #section-skills .skill{
-        width: 60%;
-        margin-left: auto;
-        margin-right: auto;
+        h2{
+            font-size: 2rem;
+        }
+        .competences{
+            @include flex-direction(column);
+        }
+        .skill-list{
+            width: 100%;
+        }
+        .skill{
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 
     #section-parcours{
@@ -573,51 +578,56 @@ a.icon{
     }
 
 
+
     #section-works{
         height: 185vh;
+
+        figure{
+            @include flex-direction(column);
+            @include margins($bottom:5vh);
+            width: 50%;
+        }
+
+        figcaption{
+            font-size: 2rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        #responsive-text{
+            display: none;
+        }
+
+        #hidden{
+            display: block;
+        }
+
+        a{
+            width: 100%;
+        }
+        .contain{
+            width: 100%;
+            height: 30vh;
+        }
+        #img_moved{
+            left: 0;
+        }
     }
-    .contain{
-        width: 45vw;
-        height: 30vh;
-    }
-    #section-works figcaption{
-        font-size: 2rem;
-    }
-    #section-works figure{
-        @include flex-direction(column);
-        @include margins($bottom:5vh);
-        width: 50%;
-    }
-    #section-works a, .contain{
-        width: 100%;
-    }
-    #img_moved{
-        left: 0;
-    }
-    #responsive-text{
-        display: none;
-    }
-    #hidden{
-        display: block;
-    }
-    #section-works figcaption{
-        width: 100%;
-        text-align: center;
-    }
+    
     #section-talk{
         height: 80vh;
-    }
-    #section-talk .contacts{
-        @include flex-direction(column);
-        @include margins();
-        width: 65%;
-    }
-    #section-talk .contactbox h2, .contactbox a{
-        font-size: 1rem;
-    }
-    #section-talk .contactbox{
-        width: 100%;
-        @include margins($top:5%);
+        .contacts{
+            @include flex-direction(column);
+            @include margins();
+            width: 65%;
+        }
+        .contactbox{
+            width: 100%;
+            @include margins($top:5%);
+            h2,a{
+                font-size: 1rem;
+            }
+        }
     }
 
     footer{
@@ -626,18 +636,24 @@ a.icon{
 }
 
 @media screen and (max-width:600px){
+    header {
+
+        #links li a{
+            font-size: 2rem;
+            #cross{
+                margin-left: 74%;
+            }
+        }
+    }
+
     #section-works figure{
         width: 90%;
     }
+
     #section-skills h2{
         font-size: 1.5rem;
     }
-    #cross{
-        margin-left: 74%;
-    }
-    #links li a{
-        font-size: 2rem;
-    }
+
     #section-parcours{
         height: 212vh;
     }
