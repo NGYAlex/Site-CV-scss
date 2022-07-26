@@ -1,0 +1,32 @@
+{
+  "name": "gulptest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass ./style/style.scss:./style/style.css -w --style compressed",
+    "prefix": "postcss ./style/style.css --use autoprefixer -d ./style/prefixed/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NGYAlex/Site-CV-scss.git"
+  },
+  "author": "NGYAlex",
+  "license": "ISC",
+  "browserslist": "last 4 versions",
+  "bugs": {
+    "url": "https://github.com/NGYAlex/Site-CV-scss/issues"
+  },
+  "homepage": "https://github.com/NGYAlex/Site-CV-scss#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-load-plugins": "latest",
+    "gulp-rename": "latest",
+    "gulp-csso": "latest",
+    "gulp-less": "latest",
+    "gulp-csscomb": "latest",
+    "gulp-cssbeautify": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-sass": "latest"
+  }
+}

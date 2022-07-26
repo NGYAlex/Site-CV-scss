@@ -1,0 +1,640 @@
+body {
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: rgb(24, 35, 56);
+  color: rgb(167, 170, 175);
+  height: 100%;
+  cursor: default;
+  overflow-x: hidden;
+}
+
+* {
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+  scrollbar-color: #727680 rgb(24, 35, 56);
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+span {
+  color: aqua;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.date {
+  font-family: "Fira Code", monospace;
+}
+
+section {
+  height: 90vh;
+  padding-top: 10vh;
+}
+
+h1, h2 {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 600;
+  color: white;
+}
+
+h1 {
+  font-size: 5rem;
+}
+h1:not(#myname) {
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: 8%;
+  margin-left: auto;
+}
+
+h2 {
+  text-transform: uppercase;
+}
+
+.container {
+  width: 70%;
+  margin: auto;
+}
+
+figure {
+  display: flex;
+  align-items: center;
+}
+
+figcaption {
+  width: 50%;
+}
+
+#burger {
+  margin-right: 1%;
+}
+#burger img {
+  height: 70px;
+  width: 70px;
+}
+
+#hidden {
+  display: none;
+}
+
+a.icon {
+  display: none;
+}
+
+header {
+  height: 10vh;
+  width: 98%;
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  display: flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: rgba(35, 53, 84, 0.26);
+}
+header #icone-site {
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: 3%;
+  transition-duration: 0.4s;
+}
+header #icone-site:hover {
+  transform: scale(1.2);
+}
+header #links {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  width: 100%;
+  align-items: center;
+  padding: 0;
+  margin-top: auto;
+  margin-right: 5%;
+  margin-bottom: auto;
+  margin-left: auto;
+  transition-duration: 0.4s;
+}
+header .navig {
+  display: flex;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  text-align: center;
+  align-items: center;
+}
+header li a {
+  transition-duration: 0.4s;
+}
+header li:hover a {
+  color: white;
+  transform: scale(1.1);
+}
+header ul input, header ul label {
+  display: none;
+}
+
+#button-cv {
+  width: 90px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: none;
+  margin-right: 3%;
+  background-color: rgb(54, 173, 228);
+}
+
+.left-sweep {
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  /* Affichage hover */
+}
+.left-sweep:hover a, .left-sweep:focus a, .left-sweep:active a {
+  color: white;
+}
+.left-sweep::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(1, 63, 84, 0.9058823529);
+  border-radius: 4px;
+  transform: scaleX(0);
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+  transform-origin: left;
+}
+.left-sweep:hover::before, .left-sweep:focus::before, .left-sweep:active::before {
+  transform: scaleX(1);
+}
+
+header a img:not(.burger) {
+  height: 70px;
+  width: 90px;
+}
+
+#section-presentation {
+  display: flex;
+  flex-direction: column;
+}
+#section-presentation .box-presentation {
+  width: 100%;
+  height: 45vh;
+  padding-top: 1vh;
+}
+#section-presentation .box-infos {
+  width: 90%;
+}
+#section-presentation .box-infos ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+#section-presentation .box-infos li {
+  padding-right: 1%;
+  font-family: "Fira Code", monospace;
+}
+#section-presentation .box-infos span {
+  text-decoration: underline;
+  font-weight: 600;
+  font-family: "Nunito", sans-serif;
+}
+
+#section-skills h2 {
+  text-align: center;
+  margin-bottom: 7vh;
+}
+#section-skills figure:not(.skill) {
+  width: 100%;
+}
+#section-skills .competences {
+  display: flex;
+  justify-content: space-around;
+}
+#section-skills .competences .skill {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(37, 50, 75);
+}
+#section-skills .competences .skill .skillbox {
+  height: 40vh;
+  width: 20vw;
+}
+#section-skills .competences .skill .skillbox .skill-list {
+  height: 80%;
+  width: 65%;
+  margin: auto;
+}
+#section-skills .competences .skill .skillbox .skill-list p {
+  font-size: 1.4rem;
+  transition-duration: 0.2s;
+  text-align: center;
+  font-family: "Fira Code", monospace;
+}
+#section-skills .competences .skill .skillbox .skill-list:hover {
+  transform: scale(1.1);
+  color: #36ade4;
+}
+#section-skills .competences .skill .skillbox .skill-list li {
+  list-style-type: square;
+}
+
+#section-parcours {
+  height: 210vh;
+}
+#section-parcours h2 {
+  font-size: 1.4rem;
+}
+#section-parcours figure {
+  width: 75%;
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+}
+#section-parcours #chevron {
+  height: 30px;
+  width: 30px;
+}
+#section-parcours .parcours .exp {
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: 10%;
+  margin-left: 5%;
+}
+
+#section-works {
+  height: 270vh;
+  z-index: 2;
+}
+#section-works #img_site {
+  height: 100%;
+  width: 100%;
+}
+#section-works figure {
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 5vh;
+  margin-left: 3%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+  background-color: rgba(1, 63, 84, 0.9058823529);
+  border-radius: 20px;
+  padding: 2% 0 2% 0;
+  transition: 0.3s;
+}
+#section-works figcaption {
+  width: 20%;
+  font-size: 4rem;
+  margin: auto;
+}
+#section-works a {
+  transition: all ease 0.5s;
+  width: 70%;
+  height: 50%;
+}
+#section-works ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  align-items: center;
+  padding: 0;
+}
+
+#img_moved {
+  left: 6%;
+}
+
+.contain {
+  position: relative;
+  width: 45vw;
+  height: 45vh;
+}
+.contain:hover .popup {
+  height: 100%;
+}
+.contain:hover .popup .used {
+  display: flex;
+}
+.contain .popup {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0%;
+  width: 100%;
+  transition: 0.5s ease;
+  background-color: rgba(24, 35, 56, 0.817);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.contain .popup p {
+  text-align: center;
+  font-family: "Fira Code", monospace;
+}
+.contain .popup .used {
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20%;
+  width: 20%;
+}
+.contain .popup .used li {
+  background-color: rgb(87, 203, 255);
+  border-radius: 5px;
+  padding: 3%;
+  margin: 3%;
+}
+
+#section-talk {
+  height: 70vh;
+}
+#section-talk p, #section-talk h1 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: 2%;
+  margin-left: auto;
+}
+#section-talk p {
+  width: 55%;
+}
+#section-talk h2 {
+  font-family: "Fira Code", monospace;
+  text-align: center;
+  margin-top: 0%;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+}
+#section-talk a {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+#section-talk img {
+  height: 60px;
+  width: 60px;
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: 1%;
+  margin-left: auto;
+}
+#section-talk .contacts {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5%;
+}
+#section-talk .contactbox {
+  background-color: rgb(37, 50, 75);
+  width: 30%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+footer {
+  width: 12%;
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer a img {
+  opacity: 0.5;
+  transition-duration: 0.4s;
+}
+footer a:hover img {
+  opacity: 1;
+}
+
+@media screen and (max-width: 1335px) {
+  body {
+    font-size: 1.1rem;
+  }
+  .container {
+    width: 80%;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  #section-skills h1 {
+    text-align: center;
+  }
+  header {
+    width: 100%;
+  }
+  header .container {
+    width: 90%;
+  }
+  header nav ul {
+    display: flex;
+    justify-content: right;
+    padding: 0;
+  }
+  header .navig {
+    width: 53%;
+    align-items: center;
+  }
+  header .navig #links {
+    display: block;
+    overflow: hidden;
+  }
+  header .navig #links a {
+    padding-top: 3%;
+    padding-bottom: 3%;
+    display: block;
+  }
+  header .icon, header .icon img {
+    display: block;
+  }
+  #links {
+    top: 0;
+    left: 0;
+    text-align: center;
+    background-color: rgb(30, 47, 75);
+    position: fixed;
+    display: block;
+    width: 100vw;
+    height: 0;
+  }
+  #cross {
+    margin-left: 85%;
+    transition: 0.3s;
+  }
+  .box-presentation {
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+  }
+  .box-infos {
+    width: 100%;
+  }
+  .box-infos ul {
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+  }
+  .box-infos li {
+    padding-bottom: 5%;
+  }
+  .skillbox {
+    width: 100%;
+  }
+  #section-skills {
+    height: 200vh;
+    padding: 0;
+  }
+  #section-skills h2 {
+    font-size: 2rem;
+  }
+  #section-skills .competences {
+    display: flex;
+    flex-direction: column;
+  }
+  #section-skills .skill-list {
+    width: 100%;
+  }
+  #section-skills .skill {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #section-parcours {
+    height: 160vh;
+  }
+  .parcours .exp {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 5%;
+    margin-left: 0;
+  }
+  .parcours figcaption {
+    width: 100%;
+  }
+  #section-works {
+    height: 185vh;
+  }
+  #section-works figure {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: 5vh;
+    margin-left: auto;
+    width: 50%;
+  }
+  #section-works figcaption {
+    font-size: 2rem;
+    width: 100%;
+    text-align: center;
+  }
+  #section-works #responsive-text {
+    display: none;
+  }
+  #section-works #hidden {
+    display: block;
+  }
+  #section-works a {
+    width: 100%;
+  }
+  #section-works .contain {
+    width: 100%;
+    height: 30vh;
+  }
+  #section-works #img_moved {
+    left: 0;
+  }
+  #section-talk {
+    height: 80vh;
+  }
+  #section-talk .contacts {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    width: 65%;
+  }
+  #section-talk .contactbox {
+    width: 100%;
+    margin-top: 5%;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+  }
+  #section-talk .contactbox h2, #section-talk .contactbox a {
+    font-size: 1rem;
+  }
+  footer {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 600px) {
+  header #links li a {
+    font-size: 2rem;
+  }
+  header #links li a #cross {
+    margin-left: 74%;
+  }
+  #section-works figure {
+    width: 90%;
+  }
+  #section-skills h2 {
+    font-size: 1.5rem;
+  }
+  #section-parcours {
+    height: 212vh;
+  }
+}/*# sourceMappingURL=style.css.map */
