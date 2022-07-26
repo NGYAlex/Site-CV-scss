@@ -100,6 +100,7 @@ a.icon{
 header{
     height: 10vh;
     width: 98%;
+    border-radius: 0 0 15px 15px;
     @include margins ();
     display: flex;
     @include justify-content (space-between);
@@ -136,13 +137,10 @@ header{
     }
 
     li {
-        a{
         transition-duration: 0.4s;
-        }
-
-        &:hover a{
+        &:hover{
             color: $police-color;
-            transform: scale(1.1);
+            transform: scale(1.2);
         }
     }
 
@@ -150,7 +148,7 @@ header{
         display: none;
     }
 
-    a{
+    
         #button-cv{
             width: 90px;
             height: 35px;
@@ -161,7 +159,7 @@ header{
             margin-right: 3%;
             background-color: $button-color;
         }
-        .left-sweep{
+        a.left-sweep{
             -webkit-transform: perspective(1px) translateZ(0);
             transform: perspective(1px) translateZ(0);
             -webkit-transition-property: color;
@@ -169,10 +167,18 @@ header{
             box-shadow: 0 0 1px transparent;
             position: relative;
         
-            &:hover a,
-            &:focus a,
-            &:active a{
+            &:hover,
+            &:focus,
+            &:active{
                 color: $police-color;
+            }
+
+            /* Affichage hover */
+            &:hover::before,
+            &:focus::before,
+            &:active::before{
+                -webkit-transform: scaleX(1);
+                transform: scaleX(1);
             }
         
             &::before{
@@ -183,17 +189,9 @@ header{
                 transition-duration: 0.2s;
                 transition-timing-function: ease-out;
                 transform-origin: left;
-        
-                /* Affichage hover */
-                &:hover,
-                &:focus,
-                &:active{
-                    -webkit-transform: scaleX(1);
-                    transform: scaleX(1);
-                }
             }
         }
-    }
+    
 }
 
 header a img:not(.burger){
@@ -263,10 +261,10 @@ header a img:not(.burger){
                         transition-duration: 0.2s;
                         text-align: center;
                         font-family: $font-mono;
-                    }
-                    &:hover{
-                        transform: scale(1.1);
-                        color: $hover-color;
+                        &:hover{
+                            transform: scale(1.1);
+                            color: $hover-color;
+                        }
                     }
                     li{
                         list-style-type: square;
@@ -465,6 +463,7 @@ footer{
 // Responsive
 
 @media screen and (max-width:1335px) {
+
     body{
         font-size: 1.1rem;
     }
@@ -489,7 +488,8 @@ footer{
         }
 
         .navig{
-            width: 53%;
+            padding: 0;
+            width: 55%;
             align-items: center;
             #links{
                 display: block;
@@ -516,10 +516,10 @@ footer{
         display: block;
         width: 100vw;
         height: 0;
-    }
-    #cross{
-        margin-left: 85%;
-        transition: 0.3s;
+        #cross{
+            margin-left: 85%;
+            transition: 0.3s;
+        }
     }
 
 
@@ -549,7 +549,7 @@ footer{
 
     #section-skills{
         height: 200vh;
-        padding: 0;
+        // padding: 0;
         h2{
             font-size: 2rem;
         }
@@ -636,25 +636,110 @@ footer{
 }
 
 @media screen and (max-width:600px){
-    header {
 
-        #links li a{
-            font-size: 2rem;
+        header {
+            height: 15vh;
+            #links{
+            li a{
+                font-size: 2rem;
+            }
             #cross{
-                margin-left: 74%;
+                margin-left: 75%;
+            }
+            }
+            .navig{
+                width: 60%;
+            }
+        }
+
+        section{
+            padding-top: 15vh;
+        }
+
+    #section-presentation{
+        padding-top: 0;
+        padding-bottom: 4vh;
+        .box-presentation {
+            width: 100%;
+            height: 45vh;
+            margin-top: 0;
+            margin-bottom: 10vh;
+        }
+        .box-infos{
+            ul{
+                padding: 0;
+                li{
+                    padding-right: 5%;
+                }
             }
         }
     }
 
-    #section-works figure{
-        width: 90%;
-    }
 
-    #section-skills h2{
+
+        #section-works figure{
+            width: 90%;
+        }
+
+    #section-skills{
+        height: 280vh;
+        h2{
         font-size: 1.5rem;
+        }
+        .competences{
+            .skill{
+                width: 100%;
+                height: 80vh;
+                .skillbox{
+                    width: 60vw;
+                }
+            }
+        }
+        
     }
 
     #section-parcours{
-        height: 212vh;
+        height: 290vh;
+    }
+
+    #section-works{
+        figure{
+            padding: 0;
+            .contain{
+                top: 0;
+                .popup{
+                    
+                    border-radius: 10px 10px 0 0;
+                    .used{
+                        width: 80%;
+                        @include justify-content(space-evenly);
+                        margin-top: 5%;
+                        margin-bottom: 1%;
+                    }
+                    p{
+                        font-size: 0.9rem;
+                        width: 95%;
+                        @include margins();
+
+                    }
+                }
+            }
+            img{
+                border-radius: 15px 15px 0 0;
+            }
+        }
+    }
+
+    #section-talk{
+        padding-bottom: 5vh;
+        p {
+        width: 90%;
+        }
+        .contacts{
+            width: 80%;
+            .contactbox{
+                height: 25vh;
+            }
+        }
     }
 }
