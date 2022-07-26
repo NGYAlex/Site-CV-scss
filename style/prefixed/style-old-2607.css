@@ -111,6 +111,7 @@ a.icon {
 header {
   height: 10vh;
   width: 98%;
+  border-radius: 0 0 15px 15px;
   margin-top: auto;
   margin-right: auto;
   margin-bottom: auto;
@@ -156,18 +157,17 @@ header .navig {
   text-align: center;
   align-items: center;
 }
-header li a {
+header li {
   transition-duration: 0.4s;
 }
-header li:hover a {
+header li:hover {
   color: white;
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 header ul input, header ul label {
   display: none;
 }
-
-#button-cv {
+header #button-cv {
   width: 90px;
   height: 35px;
   display: flex;
@@ -178,17 +178,20 @@ header ul input, header ul label {
   margin-right: 3%;
   background-color: rgb(54, 173, 228);
 }
-
-.left-sweep {
+header a.left-sweep {
   transform: perspective(1px) translateZ(0);
+  transition-property: color;
   box-shadow: 0 0 1px transparent;
   position: relative;
   /* Affichage hover */
 }
-.left-sweep:hover a, .left-sweep:focus a, .left-sweep:active a {
+header a.left-sweep:hover, header a.left-sweep:focus, header a.left-sweep:active {
   color: white;
 }
-.left-sweep::before {
+header a.left-sweep:hover::before, header a.left-sweep:focus::before, header a.left-sweep:active::before {
+  transform: scaleX(1);
+}
+header a.left-sweep::before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -202,9 +205,6 @@ header ul input, header ul label {
   transition-duration: 0.2s;
   transition-timing-function: ease-out;
   transform-origin: left;
-}
-.left-sweep:hover::before, .left-sweep:focus::before, .left-sweep:active::before {
-  transform: scaleX(1);
 }
 
 header a img:not(.burger) {
@@ -270,7 +270,7 @@ header a img:not(.burger) {
   text-align: center;
   font-family: "Fira Code", monospace;
 }
-#section-skills .competences .skill .skillbox .skill-list:hover {
+#section-skills .competences .skill .skillbox .skill-list p:hover {
   transform: scale(1.1);
   color: #36ade4;
 }
@@ -482,7 +482,8 @@ footer a:hover img {
     padding: 0;
   }
   header .navig {
-    width: 53%;
+    padding: 0;
+    width: 55%;
     align-items: center;
   }
   header .navig #links {
@@ -507,7 +508,7 @@ footer a:hover img {
     width: 100vw;
     height: 0;
   }
-  #cross {
+  #links #cross {
     margin-left: 85%;
     transition: 0.3s;
   }
@@ -533,7 +534,6 @@ footer a:hover img {
   }
   #section-skills {
     height: 200vh;
-    padding: 0;
   }
   #section-skills h2 {
     font-size: 2rem;
@@ -622,19 +622,93 @@ footer a:hover img {
   }
 }
 @media screen and (max-width: 600px) {
+  header {
+    height: 15vh;
+  }
   header #links li a {
     font-size: 2rem;
   }
-  header #links li a #cross {
-    margin-left: 74%;
+  header #links #cross {
+    margin-left: 75%;
+  }
+  header .navig {
+    width: 60%;
+  }
+  section {
+    padding-top: 15vh;
+  }
+  #section-presentation {
+    padding-top: 0;
+    padding-bottom: 4vh;
+  }
+  #section-presentation .box-presentation {
+    width: 100%;
+    height: 45vh;
+    margin-top: 0;
+    margin-bottom: 10vh;
+  }
+  #section-presentation .box-infos ul {
+    padding: 0;
+  }
+  #section-presentation .box-infos ul li {
+    padding-right: 5%;
   }
   #section-works figure {
     width: 90%;
   }
+  #section-skills {
+    height: 280vh;
+  }
   #section-skills h2 {
     font-size: 1.5rem;
   }
+  #section-skills .competences .skill {
+    width: 100%;
+    height: 80vh;
+  }
+  #section-skills .competences .skill .skillbox {
+    width: 60vw;
+  }
   #section-parcours {
-    height: 212vh;
+    height: 290vh;
+  }
+  #section-works figure {
+    padding: 0;
+  }
+  #section-works figure .contain {
+    top: 0;
+  }
+  #section-works figure .contain .popup {
+    border-radius: 10px 10px 0 0;
+  }
+  #section-works figure .contain .popup .used {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5%;
+    margin-bottom: 1%;
+  }
+  #section-works figure .contain .popup p {
+    font-size: 0.9rem;
+    width: 95%;
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+  }
+  #section-works figure img {
+    border-radius: 15px 15px 0 0;
+  }
+  #section-talk {
+    padding-bottom: 5vh;
+  }
+  #section-talk p {
+    width: 90%;
+  }
+  #section-talk .contacts {
+    width: 80%;
+  }
+  #section-talk .contacts .contactbox {
+    height: 25vh;
   }
 }/*# sourceMappingURL=style.css.map */
